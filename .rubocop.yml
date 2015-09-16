@@ -1,0 +1,14 @@
+AllCops:
+  RunRailsCops: true
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'bin/**/*'
+    - spec/*_helper.rb
+    - Gemfile
+    - Guardfile
+    - Rakefile
+StringLiterals:
+  Enabled: false
+Documentation:
+    Enabled: false
