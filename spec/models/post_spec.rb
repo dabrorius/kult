@@ -14,7 +14,12 @@ RSpec.describe Post, type: :model do
   it 'validates presence of circle' do
     expect(post).to validate_presence_of(:circle)
   end
+
   it 'belongs to circle' do
     expect(post).to belong_to(:circle)
+  end
+
+  it 'validates presence of content' do
+    expect(post).to validate_presence_of(:content)
   end
 end

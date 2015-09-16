@@ -1,8 +1,8 @@
-class Post < ActiveRecord::Base
+class Comment < ActiveRecord::Base
   belongs_to :user
-  belongs_to :circle
+  belongs_to :post
 
   validates :user, presence: true
-  validates :circle, presence: true
+  validates :post, presence: true
   validates :content, presence: true
 end
