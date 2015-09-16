@@ -27,4 +27,12 @@ RSpec.describe Circle, type: :model do
   it 'has many posts' do
     expect(circle).to have_many(:posts)
   end
+
+  it 'has many memberships' do
+    expect(circle).to have_many(:memberships)
+  end
+
+  it 'has many users' do
+    expect(circle).to have_many(:users).through(:memberships)
+  end
 end

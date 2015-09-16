@@ -6,4 +6,12 @@ RSpec.describe User, type: :model do
   it 'has many posts' do
     expect(user).to have_many(:posts)
   end
+
+  it 'has many memberships' do
+    expect(user).to have_many(:memberships)
+  end
+
+  it 'has many circles' do
+    expect(user).to have_many(:circles).through(:memberships)
+  end
 end
