@@ -11,8 +11,16 @@ RSpec.describe Circle, type: :model do
     expect(circle).to_not validate_presence_of(:description)
   end
 
-  it 'automatically assigns UUID' do
-    circle = Circle.new
-    expect(circle.uuid).to_not be_blank
+  describe '#uuid' do
+    it 'is assigned automatically' do
+      circle = FactoryGirl.build(:circle, uuid: nil)
+      circle.save
+      expect(circle.uuid).to_not be_blank
+    end
+
+    it 'is not rewriten on save' do
+      circle = FactoryGirl.build(:circle, uuid: '123-existing-uuid')
+      expect { circle.save }.to_not change { circle.uuid }
+    end
   end
 end
