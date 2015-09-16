@@ -23,4 +23,8 @@ RSpec.describe Circle, type: :model do
       expect { circle.save }.to_not change { circle.uuid }
     end
   end
+
+  it 'has many posts' do
+    expect(circle).to have_many(:posts)
+  end
 end
