@@ -12,6 +12,6 @@ RSpec.describe User, type: :model do
   end
 
   it 'has many circles' do
-    expect(user).to have_many(:circles).through(:memberships)
+    expect(user).to have_many(:kults).through(:memberships)
   end
 end

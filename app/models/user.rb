@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :memberships
-  has_many :circles, through: 'memberships'
+  has_many :kults, through: 'memberships'
 end

@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :circle do
+  factory :kult do
     name 'MyString'
     uuid 'MyString'
     description 'MyText'

@@ -11,12 +11,12 @@ RSpec.describe Post, type: :model do
     expect(post).to belong_to(:user)
   end
 
-  it 'validates presence of circle' do
-    expect(post).to validate_presence_of(:circle)
+  it 'validates presence of kult' do
+    expect(post).to validate_presence_of(:kult)
   end
 
-  it 'belongs to circle' do
-    expect(post).to belong_to(:circle)
+  it 'belongs to kult' do
+    expect(post).to belong_to(:kult)
   end
 
   it 'validates presence of content' do

@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :membership do
     user
-    circle
+    kult
     role "member"
   end
 end

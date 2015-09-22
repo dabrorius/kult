@@ -11,18 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916140244) do
+ActiveRecord::Schema.define(version: 20150922170158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "circles", force: :cascade do |t|
-    t.string   "name"
-    t.string   "uuid"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -35,26 +27,34 @@ ActiveRecord::Schema.define(version: 20150916140244) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
+  create_table "kults", force: :cascade do |t|
+    t.string   "name"
+    t.string   "uuid"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "memberships", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "circle_id"
+    t.integer  "kult_id"
     t.string   "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "memberships", ["circle_id"], name: "index_memberships_on_circle_id", using: :btree
+  add_index "memberships", ["kult_id"], name: "index_memberships_on_kult_id", using: :btree
   add_index "memberships", ["user_id"], name: "index_memberships_on_user_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.text     "content"
     t.integer  "user_id"
-    t.integer  "circle_id"
+    t.integer  "kult_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "posts", ["circle_id"], name: "index_posts_on_circle_id", using: :btree
+  add_index "posts", ["kult_id"], name: "index_posts_on_kult_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(version: 20150916140244) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "comments", "users"
-  add_foreign_key "memberships", "circles"
+  add_foreign_key "memberships", "kults"
   add_foreign_key "memberships", "users"
-  add_foreign_key "posts", "circles"
+  add_foreign_key "posts", "kults"
   add_foreign_key "posts", "users"
 end
