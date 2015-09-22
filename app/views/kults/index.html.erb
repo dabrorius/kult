@@ -1,0 +1,5 @@
+<h1>Kults</h1>
+
+<% @kults.each do |kult| %>
+  <%= link_to kult.name, kult_path(kult) %>
+<% end %>
