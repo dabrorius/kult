@@ -1,1 +1,4 @@
-$("#kults_list").append("<li><%= @post.content %></li>");
+$('#kults_list').append('<li><%= @post.content %></li>');
+$('#new_post').find(':submit').attr('disabled', false);
+$('#post_content').val('');
+
