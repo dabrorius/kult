@@ -51,4 +51,6 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'guard-rubocop'
   gem 'guard-rspec'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
