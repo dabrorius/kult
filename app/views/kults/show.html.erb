@@ -1,2 +1,6 @@
 <h1><%= @kult.name %></h1>
-<p>Find me in app/views/kults/show.html.erb</p>
+<ul>
+  <% @kult.posts.each do |post| %>
+    <li><%= post.content %></li>
+  <% end %>
+</ul>
