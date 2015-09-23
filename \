@@ -1,0 +1,1 @@
+$("#kults_list").append_html("<li><%= @post.content %></li>");

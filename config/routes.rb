@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'pages#home'
-  resources :kults
+  resources :kults do
+    resources :posts, only: ['create', 'update', 'destroy']
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

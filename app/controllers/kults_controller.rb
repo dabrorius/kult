@@ -5,6 +5,7 @@ class KultsController < ApplicationController
 
   def show
     @kult = Kult.find(params[:id])
+    @post = Post.new
   end
 
   def create

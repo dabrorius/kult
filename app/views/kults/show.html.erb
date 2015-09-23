@@ -1,6 +1,10 @@
 <h1><%= @kult.name %></h1>
-<ul>
+<ul id="kults_list">
   <% @kult.posts.each do |post| %>
     <li><%= post.content %></li>
   <% end %>
 </ul>
+<%= form_for([@kult, @post], remote: true) do |f| %>
+  <%= f.text_field :content %>
+  <%= f.submit 'Post' %>
+<% end %>
